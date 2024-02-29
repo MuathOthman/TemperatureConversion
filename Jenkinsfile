@@ -35,6 +35,7 @@ pipeline {
         }
         failure {
             echo 'Build failed!'
+            echo 'Sending email notification...'
         }
     }
 }
