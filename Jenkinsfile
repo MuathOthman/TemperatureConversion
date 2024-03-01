@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        IMAGE_NAME = 'temprature-converter'
+        IMAGE_NAME = 'temperatureconversion.jar'
         TAG = 'latest'
     }
 
