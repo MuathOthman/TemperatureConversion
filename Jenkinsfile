@@ -3,6 +3,7 @@ pipeline {
     environment {
         IMAGE_NAME = 'temperatureconversion.jar'
         TAG = 'latest'
+
     }
 
     tools {
@@ -21,6 +22,15 @@ pipeline {
             steps {
                 echo 'Building Docker Image...'
                 sh "/usr/local/bin/docker build -t ${IMAGE_NAME}:${TAG} ."
+            }
+        }
+        stage('Push Docker Image') {
+            steps {
+                echo 'Pushing Docker Image...'
+                withCredentials([string(credentialsId: 'dockerhub', variable: 'DOCKERHUB')]) {
+                    sh "/usr/local/bin/docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD"
+                    sh "/usr/local/bin/docker push ${IMAGE_NAME}:${TAG}"
+                }
             }
         }
     }
