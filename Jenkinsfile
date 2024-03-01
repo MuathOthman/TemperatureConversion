@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    environment {
+        IMAGE_NAME = 'temprature-converter'
+        TAG = 'latest'
+    }
 
     tools {
             maven 'Maven'
