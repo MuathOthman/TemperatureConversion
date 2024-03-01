@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        IMAGE_NAME = 'muathothman/temperatureconversion.jar'
+        IMAGE_NAME = 'muathothman/temperatureconversion'
         TAG = 'latest'
 
     }
@@ -12,12 +12,6 @@ pipeline {
         }
 
     stages {
-        stage('Build') {
-            steps {
-                echo 'Building...'
-                sh "/usr/local/bin/docker build -t ${IMAGE_NAME}:${TAG} ."
-            }
-        }
         stage('Build Docker Image') {
             steps {
                 echo 'Building Docker Image...'
