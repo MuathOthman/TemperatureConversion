@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        IMAGE_NAME = 'temperatureconversion.jar'
+        IMAGE_NAME = 'muathothman/temperatureconversion.jar'
         TAG = 'latest'
 
     }
