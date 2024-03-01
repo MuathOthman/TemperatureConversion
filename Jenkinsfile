@@ -17,6 +17,12 @@ pipeline {
                 sh "/usr/local/bin/docker build -t ${IMAGE_NAME}:${TAG} ."
             }
         }
+        stage('Build Docker Image') {
+            steps {
+                echo 'Building Docker Image...'
+                sh "/usr/local/bin/docker build -t ${IMAGE_NAME}:${TAG} ."
+            }
+        }
     }
     post {
         success {
